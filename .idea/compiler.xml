@@ -6,9 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="boot-order-service-consumer" />
-        <module name="boot-user-service-provider" />
+        <module name="dubbo" />
         <module name="dubbo-springboot" />
+        <module name="hello-dubbo-service-user-api" />
+        <module name="boot-user-service-provider" />
+        <module name="hello-dubbo-service-user-provider" />
+        <module name="boot-order-service-consumer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -20,6 +23,8 @@
       <module name="boot-order-service-consumer" options="-parameters" />
       <module name="boot-user-service-provider" options="-parameters" />
       <module name="gmall" options="-parameters" />
+      <module name="hello-dubbo-service-user-api" options="-parameters" />
+      <module name="hello-dubbo-service-user-provider" options="-parameters" />
     </option>
   </component>
 </project>

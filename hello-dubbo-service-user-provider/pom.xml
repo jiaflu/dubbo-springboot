@@ -8,14 +8,17 @@
         <version>2.1.5.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.ljf</groupId>
-    <artifactId>boot-order-service-consumer</artifactId>
+    <groupId>com.jiaflu</groupId>
+    <artifactId>hello-dubbo-service-user-provider</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>boot-order-service-consumer</name>
+    <packaging>jar</packaging>
+    <name>hello-dubbo-service-user-provider</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <dependencies>
@@ -23,26 +26,34 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
-
+        <dependency>
+            <!--Dubbo 的服务状态检查-->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
 
-        <!-- Dubbo Spring Boot Starter -->
         <dependency>
-            <groupId>org.apache.dubbo</groupId>
+            <groupId>com.alibaba.boot</groupId>
             <artifactId>dubbo-spring-boot-starter</artifactId>
-            <version>2.7.1</version>
+            <version>0.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>dubbo-spring-boot-actuator</artifactId>
+            <version>0.2.0</version>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo</artifactId>
-            <version>2.7.1</version>
+            <!--刚才创建的接口项目，如果无法依赖别忘记先 mvn clean install 到本地仓库。-->
+            <groupId>com.jiaflu</groupId>
+            <artifactId>hello-dubbo-service-user-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
-
     </dependencies>
 
     <build>

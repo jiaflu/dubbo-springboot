@@ -8,14 +8,17 @@
         <version>2.1.5.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.ljf</groupId>
-    <artifactId>boot-order-service-consumer</artifactId>
+    <groupId>com.jiaflu</groupId>
+    <artifactId>hello-dubbo-service-user-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>boot-order-service-consumer</name>
+    <packaging>jar</packaging>
+    <name>hello-dubbo-service-user-api</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <dependencies>
@@ -29,20 +32,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
-        <!-- Dubbo Spring Boot Starter -->
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-spring-boot-starter</artifactId>
-            <version>2.7.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo</artifactId>
-            <version>2.7.1</version>
-        </dependency>
-
     </dependencies>
 
     <build>
