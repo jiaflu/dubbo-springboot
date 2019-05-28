@@ -11,6 +11,7 @@
         <module name="hello-dubbo-service-user-api" />
         <module name="boot-user-service-provider" />
         <module name="hello-dubbo-service-user-provider" />
+        <module name="hello-dubbo-service-user-consumer" />
         <module name="boot-order-service-consumer" />
       </profile>
     </annotationProcessing>
@@ -24,6 +25,7 @@
       <module name="boot-user-service-provider" options="-parameters" />
       <module name="gmall" options="-parameters" />
       <module name="hello-dubbo-service-user-api" options="-parameters" />
+      <module name="hello-dubbo-service-user-consumer" options="-parameters" />
       <module name="hello-dubbo-service-user-provider" options="-parameters" />
     </option>
   </component>
