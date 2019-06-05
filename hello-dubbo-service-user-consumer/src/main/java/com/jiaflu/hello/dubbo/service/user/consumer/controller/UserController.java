@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
+    // userService 一定要为 private，否则报错
     @Reference(version = "${user.service.version}")
     private UserService userService;
 
