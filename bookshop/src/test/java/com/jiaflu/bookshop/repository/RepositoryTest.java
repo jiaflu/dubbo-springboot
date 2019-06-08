@@ -32,6 +32,11 @@ public class RepositoryTest extends BaseTest {
     }
 
     @Test
+    public void test2() {
+        System.out.println(bookRepository.findByName("1").getName());
+    }
+
+    @Test
     public void test4(){
 
         PrintBook printBook = new PrintBook();

@@ -6,12 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="bookshop" />
         <module name="dubbo" />
+        <module name="bookshop" />
+        <module name="hello-dubbo-service-user-consumer" />
         <module name="dubbo-springboot" />
         <module name="hello-dubbo-service-user-api" />
         <module name="hello-dubbo-service-user-provider" />
-        <module name="hello-dubbo-service-user-consumer" />
+        <module name="bookshop-admin" />
+        <module name="bookshop-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -23,6 +25,8 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="bookshop" options="-parameters" />
+      <module name="bookshop-admin" options="-parameters" />
+      <module name="bookshop-api" options="-parameters" />
       <module name="boot-order-service-consumer" options="-parameters" />
       <module name="boot-user-service-provider" options="-parameters" />
       <module name="gmall" options="-parameters" />

@@ -9,6 +9,8 @@
         <option value="$PROJECT_DIR$/hello-dubbo-service-user-provider/pom.xml" />
         <option value="$PROJECT_DIR$/hello-dubbo-service-user-consumer/pom.xml" />
         <option value="$PROJECT_DIR$/bookshop/pom.xml" />
+        <option value="$PROJECT_DIR$/bookshop-admin/pom.xml" />
+        <option value="$PROJECT_DIR$/bookshop-api/pom.xml" />
       </list>
     </option>
   </component>
