@@ -5,6 +5,8 @@ import com.jiaflu.bookshopapi.dto.BookCondition;
 import com.jiaflu.bookshopapi.dto.BookInfo;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,11 +23,11 @@ public class BookController {
     @RequestMapping(method = RequestMethod.GET)
     @JsonView(BookInfo.BookListView.class)
     public List<BookInfo> query(BookCondition condition, Pageable pageable) {
-////        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//		System.out.println(authentication);
-//		if(authentication != null) {
-//			System.out.println(authentication.getPrincipal());
-//		}
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		System.out.println(authentication);
+		if(authentication != null) {
+			System.out.println(authentication.getPrincipal());
+		}
 
 		System.out.println(pageable.getPageNumber());
 		System.out.println(pageable.getPageSize());
@@ -38,46 +40,53 @@ public class BookController {
         return books;
     }
 
-//    @JsonView(BookInfo.BookDetailView.class)
-//    @RequestMapping(value = "/{id:\\d}", method = RequestMethod.GET)
-//    //@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-//    public BookInfo getInfo(@PathVariable Long id, @CookieValue String token, @RequestHeader String auth) throws Exception {
-//		//throw new RuntimeException("test");
-//
+    @JsonView(BookInfo.BookDetailView.class)
+    @RequestMapping(value = "/{id:\\d}", method = RequestMethod.GET)
+    //@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public BookInfo getInfo(@PathVariable Long id) throws Exception {
+		//throw new RuntimeException("test");
+
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		System.out.println(authentication);
+		if (authentication != null) {
+			System.out.println(authentication.getPrincipal());
+		}
+
 //		System.out.println(id);
 //		System.out.println(token);
 //		System.out.println("auth is " + auth);
-//		BookInfo bookInfo = new BookInfo();
-//		bookInfo.setName("战争与和平");
-//		bookInfo.setPublishDate(new Date());
-//		return bookInfo;
+		BookInfo bookInfo = new BookInfo();
+		bookInfo.setName("战争与和平");
+		bookInfo.setPublishDate(new Date());
+		return bookInfo;
+	}
 
 
 	/**
 	 * 异步处理 HTTP 请求
 	 */
-	@JsonView(BookInfo.BookDetailView.class)
-	@RequestMapping(value = "/{id:\\d}", method = RequestMethod.GET)
-	//@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public Callable<BookInfo> getInfo(@PathVariable Long id) throws Exception {
-
-		long start = new Date().getTime();
-		System.out.println(Thread.currentThread().getName() + " 开始");
-
-		Callable<BookInfo> result = () -> {
-			System.out.println(Thread.currentThread().getName() + "线程开始");
-			Thread.sleep(1000);
-			BookInfo bookInfo = new BookInfo();
-			bookInfo.setName("战争与和平");
-			bookInfo.setPublishDate(new Date());
-
-			System.out.println(Thread.currentThread().getName() + " 线程返回，耗时： " + (new Date().getTime() - start));
-			return bookInfo;
-		};
-
-		System.out.println(Thread.currentThread().getName() + "返回，耗时： " + (new Date().getTime() - start));
-		return result;
-	}
+//	@JsonView(BookInfo.BookDetailView.class)
+//	@RequestMapping(value = "/{id:\\d}", method = RequestMethod.GET)
+//	//@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+//	public Callable<BookInfo> getInfo(@PathVariable Long id) throws Exception {
+//
+//		long start = new Date().getTime();
+//		System.out.println(Thread.currentThread().getName() + " 开始");
+//
+//		Callable<BookInfo> result = () -> {
+//			System.out.println(Thread.currentThread().getName() + "线程开始");
+//			Thread.sleep(1000);
+//			BookInfo bookInfo = new BookInfo();
+//			bookInfo.setName("战争与和平");
+//			bookInfo.setPublishDate(new Date());
+//
+//			System.out.println(Thread.currentThread().getName() + " 线程返回，耗时： " + (new Date().getTime() - start));
+//			return bookInfo;
+//		};
+//
+//		System.out.println(Thread.currentThread().getName() + "返回，耗时： " + (new Date().getTime() - start));
+//		return result;
+//	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public BookInfo create(@RequestBody BookInfo info, BindingResult result) {
